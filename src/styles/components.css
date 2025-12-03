@@ -37,6 +37,10 @@
     @apply pt-16 px-8 lg:px-48;
   }
 
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white mb-6 transition-colors;
+  }
+
   /* About Text */
   .about-text {
     @apply space-y-4 text-gray-700 dark:text-neutral-300 leading-relaxed transition-colors text-lg;
