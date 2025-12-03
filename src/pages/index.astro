@@ -1,81 +1,102 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar';
+import ExperienceCard from '../components/ExperienceCard';
+
+const experiences = [
+  {
+    date: "Dec 2022 — Present",
+    title: "Frontend Developer",
+    company: "Mimosa Networks",
+    description: "Working on our enterprise Network Management Platform, migrating it from Angular to React. I focus on building interactive network visualizations and improving overall performance.",
+    tech: ["React", "TypeScript", "Redux Toolkit", "ReactFlow", "Google Maps API", "Material-UI", "Vite", "Vitest"]
+  },
+  {
+    date: "Nov 2021 — Dec 2022",
+    title: "Manager, SQA Turkey Team",
+    company: "Mimosa Networks",
+    description: "Managed our Turkey and US-based QA teams during the Wi-Fi 6 product development cycle.",
+    tech: ["Cypress", "Team Leadership", "Agile/Scrum", "Wi-Fi 6"]
+  },
+  {
+    date: "Apr 2021 — Nov 2021",
+    title: "Software Quality Assurance Turkey Team Lead",
+    company: "Mimosa Networks",
+    description: "Led the Turkey QA team testing our Wi-Fi 5 products for a major deployment.",
+    tech: ["Cypress", "Test Automation", "Wi-Fi 5"]
+  },
+  {
+    date: "Oct 2020 — Apr 2021",
+    title: "Senior Software Quality Assurance Engineer",
+    company: "Mimosa Networks",
+    description: "Set up our Jenkins CI/CD pipeline and automated test infrastructure.",
+    tech: ["Jenkins", "CI/CD", "Python", "Test Automation"]
+  },
+];
+
+const projects = [
+  {
+    title: "Neighborhood Energy NE",
+    description: "A Django-based platform for tracking energy contracts and usage. Helps commercial clients manage their energy suppliers and optimize costs.",
+    tech: ["Django", "Python", "PostgreSQL", "Docker", "AWS S3"]
+  },
+  {
+    title: "ChronoSearch",
+    description: "A web app for discovering luxury watches. You can upload a photo to identify a watch or test your knowledge with watch trivia.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "PWA"]
+  },
+  {
+    title: "Text2Test",
+    description: "My Master's thesis project — an NLP system that converts plain English test descriptions into executable Android tests. Makes writing automated tests much easier.",
+    tech: ["Python", "PyTorch", "NLP", "spaCy", "Appium"]
+  }
+];
 ---
 
-<Layout title="Ahmet Akyildiz - Portfolio">
-  <main class="min-h-screen">
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Ahmet Akyildiz
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-          Software Developer & Full Stack Engineer
-        </p>
-        <p class="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-          Building elegant solutions to complex problems.
-        </p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <a 
-            href="#projects" 
-            class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105"
-          >
-            View Projects
-          </a>
-          <a 
-            href="#contact" 
-            class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-all duration-300"
-          >
-            Contact Me
-          </a>
-        </div>
-      </div>
-    </section>
+<Layout title="Ahmet Akyildiz - Frontend Developer">
+    <div class="flex">
+        <Sidebar client:idle />
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Add your projects here -->
-          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
-            <h3 class="text-2xl font-bold mb-3">Project Name</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Brief project description goes here.
+        <main class="main-content">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="about-text">
+            <p>
+                Hey! I'm a frontend developer at Mimosa Networks, where I spend most of my time 
+                working on our network management platform — currently in the middle of migrating 
+                it from Angular to React. Before moving into development, I spent about six years 
+                in QA and eventually led our Turkey team.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
-                React
-              </span>
-              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
-                TypeScript
-              </span>
+            <p>
+                The QA background turned out to be pretty useful — there's something about breaking 
+                things professionally that makes you better at building them. These days I'm most 
+                comfortable in React and TypeScript, though I'll happily pick up whatever gets the 
+                job done. Finished my Master's recently, focusing on NLP and automated testing.
+            </p>
+            <p>
+                When I'm not coding, you'll probably find me training for my next triathlon, hunting 
+                for good specialty coffee, or reading about medieval history. Also into skiing and 
+                kitesurfing when the weather cooperates.
+            </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
-          I'm always open to new opportunities and collaborations.
-        </p>
-        <div class="flex gap-6 justify-center">
-          <a href="mailto:your.email@example.com" class="text-blue-600 hover:underline">
-            Email
-          </a>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+                {projects.map((project) => (
+                <ExperienceCard client:load {...project} />
+                ))}
+            </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Experience</h2>
+            {experiences.map((exp) => (
+            <ExperienceCard client:load {...exp} />
+            ))}
+        </section>
+
+        </main>
+    </div>
 </Layout>
