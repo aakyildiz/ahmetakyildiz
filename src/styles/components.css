@@ -3,17 +3,22 @@
 @tailwind utilities;
 
 @layer components {
+  /* Layout */
+  .layout-wrapper {
+    @apply flex flex-col lg:flex-row;
+  }
+
   /* Sidebar */
   .sidebar {
-    @apply fixed left-0 top-0 h-screen w-full lg:w-1/3 bg-gray-50 dark:bg-neutral-950 p-8 lg:p-12 flex flex-col transition-colors duration-300;
+    @apply relative lg:fixed lg:left-0 lg:top-0 lg:h-screen w-full lg:w-1/3 bg-gray-50 dark:bg-neutral-950 p-8 lg:p-12 flex flex-col transition-colors duration-300;
   }
 
   .sidebar-name {
-    @apply text-5xl font-bold text-gray-900 dark:text-white mb-2 transition-colors;
+    @apply text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 transition-colors;
   }
 
   .sidebar-title {
-    @apply text-2xl text-gray-600 dark:text-neutral-400 mb-6 transition-colors;
+    @apply text-xl lg:text-2xl text-gray-600 dark:text-neutral-400 mb-6 transition-colors;
   }
 
   .sidebar-intro {
@@ -21,7 +26,7 @@
   }
 
   .nav-link {
-    @apply block py-2 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white transition-colors;
+    @apply hidden lg:block py-2 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white transition-colors;
   }
 
   .nav-link-active {
@@ -43,7 +48,7 @@
 
   /* About Text */
   .about-text {
-    @apply space-y-4 text-gray-700 dark:text-neutral-300 leading-relaxed transition-colors text-lg;
+    @apply space-y-4 text-gray-700 dark:text-neutral-300 leading-relaxed transition-colors text-base lg:text-lg;
   }
 
   /* Experience Card */
