@@ -1,22 +1,29 @@
 import { useEffect, useState } from 'react';
 
+function getInitialTheme(): boolean {
+  if (typeof window === 'undefined') {
+    return true;
+  }
+  
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    return savedTheme === 'dark';
+  }
+  
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
-    // Check localStorage and system preference on mount
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    setIsDark(shouldBeDark);
-    
-    if (shouldBeDark) {
+    // Apply theme on mount
+    if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, []);
+  }, [isDark]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
