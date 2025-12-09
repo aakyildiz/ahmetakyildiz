@@ -1,29 +1,10 @@
-import { useEffect, useState } from 'react';
-
-function getInitialTheme(): boolean {
-  if (typeof window === 'undefined') {
-    return true;
-  }
-  
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    return savedTheme === 'dark';
-  }
-  
-  return window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
+import { useState, useEffect } from 'react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(getInitialTheme);
-
-  useEffect(() => {
-    // Apply theme on mount
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
+  // Just read current state from DOM (inline script already set it)
+  const [isDark, setIsDark] = useState(() => 
+    typeof window !== 'undefined' && document.documentElement.classList.contains('dark')
+  );
 
   const toggleTheme = () => {
     const newTheme = !isDark;
