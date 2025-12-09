@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar';
+---
+
+<Layout title="404 - Page Not Found">
+    <div class="layout-wrapper">
+        <Sidebar client:idle />
+
+        <main class="main-content">
+            <section class="section">
+                <div class="error-content">
+                    <h1 class="error-code">404</h1>
+                    <h2 class="error-title">Page Not Found</h2>
+                    <p class="error-message">
+                        The page you're looking for doesn't exist or has been moved.
+                    </p>
+                    <a href="/" class="error-link">
+                        ← Back to Home
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    .error-content {
+        @apply flex flex-col items-center justify-center text-center lg:w-[600px];
+    }
+
+    .error-code {
+        @apply text-8xl sm:text-9xl font-bold text-orange-600 dark:text-orange-400 mb-4;
+        line-height: 1;
+    }
+
+    .error-title {
+        @apply text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white mb-4;
+    }
+
+    .error-message {
+        @apply text-base sm:text-lg text-neutral-600 dark:text-neutral-400 mb-8 max-w-md;
+    }
+
+    .error-link {
+        @apply inline-flex items-center text-orange-600 dark:text-white rounded-lg  hover:text-orange-700 dark:hover:text-orange-600 transition-colors font-medium;
+    }
+</style>
+
